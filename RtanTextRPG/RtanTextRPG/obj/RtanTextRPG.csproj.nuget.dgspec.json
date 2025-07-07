@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj": {}
+    "D:\\Github\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj": {
+    "D:\\Github\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj",
+        "projectUniqueName": "D:\\Github\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj",
         "projectName": "RtanTextRPG",
-        "projectPath": "D:\\WorkSpace\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj",
+        "projectPath": "D:\\Github\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG.csproj",
         "packagesPath": "C:\\Users\\TheExotic\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\RtanTextRPG\\RtanTextRPG\\obj\\",
+        "outputPath": "D:\\Github\\RtanTextRPG\\RtanTextRPG\\RtanTextRPG\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
