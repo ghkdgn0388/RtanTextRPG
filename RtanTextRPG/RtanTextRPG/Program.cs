@@ -145,13 +145,41 @@
                     Console.ReadLine();
                     continue;
                 }
-                else if (act == "2")
+                else if (act == "2") // 2. 인벤토리 선택
                 {
-                    Console.Clear();
-                    myInven.InvenShow();
-                    Console.WriteLine("돌아가려면 아무버튼이나 입력해주세요");
-                    Console.ReadLine();
-                    continue;
+                    // 인벤토리 하위 메뉴를 위한 새로운 루프 시작
+                    while (true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("## 인벤토리 ##");
+                        myInven.InvenShow(); // 현재 아이템 목록과 장착 상태 보여주기
+                        Console.WriteLine("\n--------------------");
+                        Console.WriteLine("1. 장비 관리");
+                        Console.WriteLine("0. 나가기");
+                        Console.WriteLine("--------------------");
+                        Console.Write("원하시는 행동을 입력해주세요: ");
+
+                        string invenAct = Console.ReadLine();
+
+                        if (invenAct == "1")
+                        {
+                            // 여기서 Equip() 메서드를 호출합니다.
+                            myInven.Equip();
+                            // Equip() 메서드가 끝나면 루프의 처음으로 돌아가
+                            // 변경된 내용이 적용된 인벤토리를 다시 보여줍니다.
+                        }
+                        else if (invenAct == "0")
+                        {
+                            // '나가기'를 선택하면 break를 통해
+                            // 인벤토리 루프를 탈출하고 메인 메뉴로 돌아갑니다.
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                            Thread.Sleep(1000);
+                        }
+                    }
                 }
                 else if (act == "3")
                 {
