@@ -3,7 +3,7 @@
     internal class Program
     {
         static Role myRole = null;
-        static Item myItem = null;
+        //static Item myItem = null;
         static List<Item> myInventory = new List<Item>();
 
         static void Main(string[] args)
@@ -19,7 +19,13 @@
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("RtanTextRPG");
+                Console.WriteLine("□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□");
+                Console.WriteLine("□■■■■□□■■■■■□□□■□□□■□□□■□□■■■■■□■■■■■□■□□□■□■■■■■□□■■■■□□□■■■□□□■■■■□");
+                Console.WriteLine("□■□□□■□□□■□□□□■□■□□■■□□■□□□□■□□□■□□□□□□■□■□□□□■□□□□■□□□■□■□□□■□■□□□□□");
+                Console.WriteLine("□■■■■□□□□■□□□■■■■■□■□■□■□□□□■□□□■■■■■□□□■□□□□□■□□□□■■■■□□■■■■□□■□■■□□");
+                Console.WriteLine("□■□■□□□□□■□□□■□□□■□■□□■■□□□□■□□□■□□□□□□■□■□□□□■□□□□■□■□□□■□□□□□■□□□■□");
+                Console.WriteLine("□■□□■■□□□■□□□■□□□■□■□□□■□□□□■□□□■■■■■□■□□□■□□□■□□□□■□□■■□■□□□□□□■■■□□");
+                Console.WriteLine("□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□");
                 Console.WriteLine("1. 새 게임");
                 Console.WriteLine("2. 불러 오기");
 

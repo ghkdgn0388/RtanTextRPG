@@ -2,7 +2,7 @@
 
 public class Role
 {
-    static Item myItem = null;
+    //static Item myItem = null;
 
     public string name;
     public string role;
