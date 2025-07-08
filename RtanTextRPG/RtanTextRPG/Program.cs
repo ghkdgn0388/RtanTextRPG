@@ -4,7 +4,7 @@
     {
         static Role myRole = null;
         static Item myItem = null;
-        List<Item> myInventory = new List<Item>();
+        static List<Item> myInventory = new List<Item>();
 
         static void Main(string[] args)
         {
@@ -83,15 +83,17 @@
                 if (role == "1")
                 {
                     myRole = new Knight();
-                    myInventory.AddRange(myRole.GetStarterItem());
+                    myInventory.AddRange(((Knight)myRole).GetStarterItem());
                 }
                 else if (role == "2")
                 {
                     myRole = new Mercenary();
+                    myInventory.AddRange(((Mercenary)myRole).GetStarterItem());
                 }
                 else if (role == "3")
                 {
                     myRole = new Thief();
+                    myInventory.AddRange(((Thief)myRole).GetStarterItem());
                 }
                 else
                 {

@@ -37,11 +37,14 @@ public class Knight : Role
         gold = 300;
     }
 
-    public GetStarterItem()
+    public List<Item> GetStarterItem()
     {
-        myItem = new KnightMace();
-        myItem = new KnightArmor();
-        myItem = new KnightShield();
+        return new List<Item>
+        {
+            new KnightMace(),
+            new KnightArmor(),
+            new KnightShield()
+        };
     }
 }
 
@@ -56,6 +59,15 @@ public class Mercenary : Role
         health = 100;
         gold = 500;
     }
+
+    public List<Item> GetStarterItem()
+    {
+        return new List<Item>
+        {
+            new MercenaryTwohander(),
+            new MercenaryArmor()
+        };
+    }
 }
 
 public class Thief : Role
@@ -68,6 +80,16 @@ public class Thief : Role
         armor = 5;
         health = 80;
         gold = 800;
+    }
+
+    public List<Item> GetStarterItem()
+    {
+        return new List<Item>
+        {
+            new ThiefSword(),
+            new ThiefDagger(),
+            new ThiefArmor()
+        };
     }
 }
 
