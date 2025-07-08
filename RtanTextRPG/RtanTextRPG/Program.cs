@@ -141,6 +141,7 @@
                     else
                     {
                         Console.WriteLine("정확한 값을 입력해 주세요");
+                        Thread.Sleep(1000);
                         continue;
                     }
                 }
