@@ -151,7 +151,6 @@
                     while (true)
                     {
                         Console.Clear();
-                        Console.WriteLine("## 인벤토리 ##");
                         myInven.InvenShow(); // 현재 아이템 목록과 장착 상태 보여주기
                         Console.WriteLine("\n--------------------");
                         Console.WriteLine("1. 장비 관리");
