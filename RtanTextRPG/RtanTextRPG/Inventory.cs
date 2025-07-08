@@ -37,7 +37,6 @@ public class Inventory
 
             Console.WriteLine($"{i + 1}. {equippedMark}{item.name} ({item.type})");
         }
-        Equip();
     }
 
     public void Equip()
@@ -106,7 +105,7 @@ public class Inventory
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
-                case "보조 무기":
+                case "보조 장비":
                     if (equippedSub != null)
                     {
                         Console.WriteLine($"{equippedSub.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
