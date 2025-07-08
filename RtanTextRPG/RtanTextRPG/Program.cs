@@ -97,7 +97,7 @@
                 }
                 myRole.name = name;
 
-                playerInfo();
+                myRole.PlayerInfo();
                 Console.WriteLine("1. 시작하기\n0. 다시선택");
                 string check = Console.ReadLine();
                 if (check == "1")
@@ -130,7 +130,7 @@
                 if (act == "1")
                 {
                     Console.Clear();
-                    playerInfo();
+                    myRole.PlayerInfo();
                     Console.WriteLine("1. 돌아가기");
                     string check = Console.ReadLine();
 
@@ -164,71 +164,11 @@
                 else
                 {
                     Console.WriteLine("정확한 값을 입력해 주세요");
-                    return;
+                    continue;
                 }
             }
         }
 
-        static void playerInfo()
-        {
-            Console.WriteLine("=== 캐릭터 정보 ===");
-            Console.WriteLine($"이름: {myRole.name}");
-            Console.WriteLine($"레벨: Lv.{myRole.level}");
-            Console.WriteLine($"직업: {myRole.role}");
-            Console.WriteLine($"공격력: {myRole.power}");
-            Console.WriteLine($"방어력: {myRole.armor}");
-            Console.WriteLine($"체력: {myRole.health}");
-            Console.WriteLine($"소지금: {myRole.gold}");
-        }
-
-        public class Role
-        {
-            public string name;
-            public string role;
-            public int level;
-            public int power;
-            public int armor;
-            public int health;
-            public int gold;
-        }
-
-        public class Knight : Role
-        {
-            public Knight()
-            {
-                role = "기사";
-                level = 1;
-                power = 5;
-                armor = 20;
-                health = 150;
-                gold = 300;
-            }
-        }
-
-        public class Mercenary : Role
-        {
-            public Mercenary()
-            {
-                role = "용병";
-                level = 1;
-                power = 10;
-                armor = 10;
-                health = 100;
-                gold = 500;
-            }
-        }
-
-        public class Thief : Role
-        {
-            public Thief()
-            {
-                role = "도적";
-                level = 1;
-                power = 15;
-                armor = 5;
-                health = 80;
-                gold = 800;
-            }
-        }
+        
     }
 }
