@@ -2,7 +2,7 @@
 
 public class Role
 {
-    //static Item myItem = null;
+    //static Inventory myInventory = new Inventory();
 
     public string name;
     public string role;

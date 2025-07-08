@@ -4,7 +4,7 @@
     {
         static Role myRole = null;
         //static Item myItem = null;
-        static List<Item> myInventory = new List<Item>();
+        static Inventory myInven = new Inventory();
 
         static void Main(string[] args)
         {
@@ -87,17 +87,17 @@
                 if (role == "1")
                 {
                     myRole = new Knight();
-                    myInventory.AddRange(((Knight)myRole).GetStarterItem());
+                    myInven.AddRange(((Knight)myRole).GetStarterItem());
                 }
                 else if (role == "2")
                 {
                     myRole = new Mercenary();
-                    myInventory.AddRange(((Mercenary)myRole).GetStarterItem());
+                    myInven.AddRange(((Mercenary)myRole).GetStarterItem());
                 }
                 else if (role == "3")
                 {
                     myRole = new Thief();
-                    myInventory.AddRange(((Thief)myRole).GetStarterItem());
+                    myInven.AddRange(((Thief)myRole).GetStarterItem());
                 }
                 else
                 {
@@ -141,23 +141,17 @@
                 {
                     Console.Clear();
                     myRole.PlayerInfo();
-                    Console.WriteLine("1. 돌아가기");
-                    string check = Console.ReadLine();
-
-                    if (check == "1")
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        Console.WriteLine("정확한 값을 입력해 주세요");
-                        Thread.Sleep(1000);
-                        continue;
-                    }
+                    Console.WriteLine("돌아가려면 아무버튼이나 입력해주세요");
+                    Console.ReadLine();
+                    continue;
                 }
                 else if (act == "2")
                 {
-
+                    Console.Clear();
+                    myInven.InvenShow();
+                    Console.WriteLine("돌아가려면 아무버튼이나 입력해주세요");
+                    Console.ReadLine();
+                    continue;
                 }
                 else if (act == "3")
                 {
