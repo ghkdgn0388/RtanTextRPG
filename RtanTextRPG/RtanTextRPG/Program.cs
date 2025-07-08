@@ -3,6 +3,9 @@
     internal class Program
     {
         static Role myRole = null;
+        static Item myItem = null;
+        List<Item> myInventory = new List<Item>();
+
         static void Main(string[] args)
         {
             while (true)
@@ -80,6 +83,7 @@
                 if (role == "1")
                 {
                     myRole = new Knight();
+                    myInventory.AddRange(myRole.GetStarterItem());
                 }
                 else if (role == "2")
                 {

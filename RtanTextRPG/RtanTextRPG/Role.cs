@@ -2,6 +2,8 @@
 
 public class Role
 {
+    static Item myItem = null;
+
     public string name;
     public string role;
     public int level;
@@ -33,6 +35,13 @@ public class Knight : Role
         armor = 20;
         health = 150;
         gold = 300;
+    }
+
+    public GetStarterItem()
+    {
+        myItem = new KnightMace();
+        myItem = new KnightArmor();
+        myItem = new KnightShield();
     }
 }
 
