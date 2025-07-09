@@ -197,7 +197,24 @@
                         Console.WriteLine("--------------------");
                         Console.Write("원하시는 행동을 입력해주세요: ");
 
-                        string Act = Console.ReadLine();
+                        string input = Console.ReadLine();
+                        if(input == "1")
+                        {
+                            nStore.Buy(myInven);
+                        }
+                        else if(input == "2")
+                        {
+                            nStore.Sell(myInven);
+                        }
+                        else if(input == "0")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                            Thread.Sleep(1000);
+                        }
                     }
                 }
                 else if (act == "4")

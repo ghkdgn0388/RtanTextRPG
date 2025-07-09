@@ -151,6 +151,6 @@ public class TwoHandSword : Item
         type = ItemType.양손무기;
         power = 15;
         armor = 10;
-        price = 500;
+        price = 100;
     }
 }

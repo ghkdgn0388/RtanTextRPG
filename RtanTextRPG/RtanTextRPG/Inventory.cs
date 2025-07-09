@@ -8,6 +8,7 @@ public class Inventory
     public Item equippedWeapon = null;
     public Item equippedArmor = null;
     public Item equippedSub = null;
+    public Item equippedTwoHand = null;
 
     public void Add(Item item)
     {
@@ -30,7 +31,7 @@ public class Inventory
             Item item = items[i];
             string equippedMark = "";
 
-            if (item == equippedWeapon || item == equippedArmor || item == equippedSub)
+            if (item == equippedWeapon || item == equippedArmor || item == equippedSub || item == equippedTwoHand)
             {
                 equippedMark = "[E] ";
             }
@@ -71,6 +72,11 @@ public class Inventory
             equippedSub = null;
             Console.WriteLine($"{selectedItem.name} 장착을 해제했습니다.");
         }
+        else if (selectedItem == equippedTwoHand)
+        {
+            equippedTwoHand = null;
+            Console.WriteLine($"{selectedItem.name} 장착을 해제했습니다.");
+        }
         // 3. 장착되지 않은 아이템이라면 -> 아이템 타입에 맞게 장착
         else
         {
@@ -80,6 +86,10 @@ public class Inventory
                     // 이미 다른 무기를 끼고 있다면 알려줄 수 있습니다.
                     if (equippedWeapon != null)
                     {
+                        if(equippedWeapon.type == ItemType.양손무기)
+                        {
+                            equippedSub = null;
+                        }
                         Console.WriteLine($"{equippedWeapon.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
                     }
                     equippedWeapon = selectedItem;
@@ -108,6 +118,10 @@ public class Inventory
                 case ItemType.보조장비:
                     if (equippedSub != null)
                     {
+                        if (equippedSub.type == ItemType.양손무기)
+                        {
+                            equippedWeapon = null;
+                        }
                         Console.WriteLine($"{equippedSub.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
                     }
                     equippedSub = selectedItem;
