@@ -17,11 +17,12 @@ public class Store
 
     public void StoreShow()
     {
-        StoreItem();
+        sItem = StoreItem();
+
         Console.WriteLine("====== 상점 ======");
-        for (int i = 0; i < items.Count; i++)
+        for (int i = 0; i < sItem.Count; i++)
         {
-            Item item = items[i];
+            Item item = sItem[i];
 
             Console.WriteLine($"{i + 1}. {item.name} ({item.type})");
         }

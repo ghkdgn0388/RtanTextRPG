@@ -183,8 +183,18 @@
                 }
                 else if (act == "3")
                 {
-                    Console.Clear();
-                    nStore.StoreShow();
+                    while (true)
+                    {
+                        Console.Clear();
+                        nStore.StoreShow();
+                        Console.WriteLine("\n--------------------");
+                        Console.WriteLine("1. 장비 관리");
+                        Console.WriteLine("0. 나가기");
+                        Console.WriteLine("--------------------");
+                        Console.Write("원하시는 행동을 입력해주세요: ");
+
+                        string StoreAct = Console.ReadLine();
+                    }
                 }
                 else if (act == "4")
                 {
