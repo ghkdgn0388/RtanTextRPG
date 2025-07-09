@@ -89,18 +89,21 @@
                 {
                     myRole = new Knight();
                     myInven.AddRange(((Knight)myRole).GetStarterItem());
+                    myRole.myInven = myInven;
                     nStore = new Store(myRole);
                 }
                 else if (role == "2")
                 {
                     myRole = new Mercenary();
                     myInven.AddRange(((Mercenary)myRole).GetStarterItem());
+                    myRole.myInven = myInven;
                     nStore = new Store(myRole);
                 }
                 else if (role == "3")
                 {
                     myRole = new Thief();
                     myInven.AddRange(((Thief)myRole).GetStarterItem());
+                    myRole.myInven = myInven;
                     nStore = new Store(myRole);
                 }
                 else

@@ -5,10 +5,21 @@ public class Inventory
 {
     public List<Item> items = new List<Item>();
 
-    public Item equippedWeapon = null;
-    public Item equippedArmor = null;
-    public Item equippedSub = null;
-    public Item equippedTwoHand = null;
+    public Item[] equipment = new Item[3]; 
+    
+    public enum equipped
+    {
+        weapon = 0,
+        armor,
+        sub
+    }
+
+
+
+
+    //public Item equipment[(int)equipped.weapon] = null;
+    //public Item equipment[(int)equipped.armor] = null;
+    //public Item equipment[(int)equipped.sub] = null;
 
     public void Add(Item item)
     {
@@ -31,7 +42,7 @@ public class Inventory
             Item item = items[i];
             string equippedMark = "";
 
-            if (item == equippedWeapon || item == equippedArmor || item == equippedSub || item == equippedTwoHand)
+            if (item == equipment[(int)equipped.weapon] || item == equipment[(int)equipped.armor] || item == equipment[(int)equipped.sub])
             {
                 equippedMark = "[E] ";
             }
@@ -57,24 +68,19 @@ public class Inventory
         Item selectedItem = items[itemIndex - 1];
 
         // 2. 선택한 아이템이 이미 장착된 아이템인지 확인 -> 맞다면 장착 해제
-        if (selectedItem == equippedWeapon)
+        if (selectedItem == equipment[(int)equipped.weapon])
         {
-            equippedWeapon = null;
+            equipment[(int)equipped.weapon] = null;
             Console.WriteLine($"{selectedItem.name} 장착을 해제했습니다.");
         }
-        else if (selectedItem == equippedArmor)
+        else if (selectedItem == equipment[(int)equipped.armor])
         {
-            equippedArmor = null;
+            equipment[(int)equipped.armor] = null;
             Console.WriteLine($"{selectedItem.name} 장착을 해제했습니다.");
         }
-        else if (selectedItem == equippedSub)
+        else if (selectedItem == equipment[(int)equipped.sub])
         {
-            equippedSub = null;
-            Console.WriteLine($"{selectedItem.name} 장착을 해제했습니다.");
-        }
-        else if (selectedItem == equippedTwoHand)
-        {
-            equippedTwoHand = null;
+            equipment[(int)equipped.sub] = null;
             Console.WriteLine($"{selectedItem.name} 장착을 해제했습니다.");
         }
         // 3. 장착되지 않은 아이템이라면 -> 아이템 타입에 맞게 장착
@@ -84,47 +90,48 @@ public class Inventory
             {
                 case ItemType.한손무기:
                     // 이미 다른 무기를 끼고 있다면 알려줄 수 있습니다.
-                    if (equippedWeapon != null)
+                    if (equipment[(int)equipped.weapon] != null)
                     {
-                        if(equippedWeapon.type == ItemType.양손무기)
+                        if(equipment[(int)equipped.weapon].type == ItemType.양손무기)
                         {
-                            equippedSub = null;
+                            equipment[(int)equipped.sub] = null;
                         }
-                        Console.WriteLine($"{equippedWeapon.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
+                        Console.WriteLine($"{equipment[(int)equipped.weapon].name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
                     }
-                    equippedWeapon = selectedItem;
+                    equipment[(int)equipped.weapon] = selectedItem;
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
                 case ItemType.양손무기:
-                    if (equippedWeapon != null || equippedSub != null)
+                    if (equipment[(int)equipped.weapon] != null || equipment[(int)equipped.sub] != null)
                     {
                         Console.WriteLine("양손 무기를 장착하기 위해 다른 무기들을 해제합니다.");
                     }
-                    equippedWeapon = selectedItem;
-                    equippedSub = selectedItem; // 양손 무기는 보조무기 슬롯도 차지
+                    equipment[(int)equipped.weapon] = selectedItem;
+                    equipment[(int)equipped.sub] = null; // 양손 무기는 보조무기 슬롯도 차지
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
                 case ItemType.방어구: // 아이템 타입은 일관성 있게 관리하는 것이 좋습니다.
-                    if (equippedArmor != null)
+                    if (equipment[(int)equipped.armor] != null)
                     {
-                        Console.WriteLine($"{equippedArmor.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
+                        Console.WriteLine($"{equipment[(int)equipped.armor].name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
                     }
-                    equippedArmor = selectedItem;
+                    equipment[(int)equipped.armor] = selectedItem;
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
                 case ItemType.보조장비:
-                    if (equippedSub != null)
+                    if (equipment[(int)equipped.sub] != null)
                     {
-                        if (equippedSub.type == ItemType.양손무기)
-                        {
-                            equippedWeapon = null;
-                        }
-                        Console.WriteLine($"{equippedSub.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
+                        Console.WriteLine($"{equipment[(int)equipped.sub].name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
                     }
-                    equippedSub = selectedItem;
+
+                    if (equipment[(int)equipped.weapon].type == ItemType.양손무기)
+                    {
+                        equipment[(int)equipped.weapon] = null;
+                    }
+                    equipment[(int)equipped.sub] = selectedItem;
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 

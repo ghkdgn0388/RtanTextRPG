@@ -2,8 +2,7 @@
 
 public class Role
 {
-    //static Inventory myInventory = new Inventory();
-
+    public Inventory myInven;
     public string name;
     public string role;
     public int level;
@@ -12,16 +11,43 @@ public class Role
     public int health;
     public int gold;
 
+    public int plusPower;
+    public int plusArmor;
+    public int plusHealth;
+
+    public int curHealth;
+
     public void PlayerInfo()
     {
+        //myInven.equipment[0] = myInven.equippedWeapon;
+        //myInven.equipment[1] = myInven.equippedArmor;
+        //myInven.equipment[2] = myInven.equippedSub;
+        LoadStat();
+
         Console.WriteLine("=== 캐릭터 정보 ===");
         Console.WriteLine($"이름: {name}");
         Console.WriteLine($"레벨: Lv.{level}");
         Console.WriteLine($"직업: {role}");
-        Console.WriteLine($"공격력: {power}");
-        Console.WriteLine($"방어력: {armor}");
-        Console.WriteLine($"체력: {health}");
+        Console.WriteLine($"공격력: {power}{(plusPower > 0 ? $" + {plusPower}" : "")}");
+        Console.WriteLine($"방어력: {armor}{(plusArmor > 0 ? $" + {plusArmor}" : "")}");
+        Console.WriteLine($"체력: {health}{(plusHealth > 0 ? $" + {plusHealth}" : "")}");
         Console.WriteLine($"소지금: {gold}G");
+    }
+
+    public void LoadStat()
+    {
+        plusPower = 0;
+        plusArmor = 0;
+        plusHealth = 0;
+        for (int i = 0; i < myInven.equipment.Length; i++)
+        {
+            if (myInven.equipment[i] != null)
+            {
+                plusPower += myInven.equipment[i].power;
+                plusArmor += myInven.equipment[i].armor;
+                plusHealth += myInven.equipment[i].health;
+            }
+        }
     }
 }
 
