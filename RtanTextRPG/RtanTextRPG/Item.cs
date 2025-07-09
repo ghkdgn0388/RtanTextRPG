@@ -139,7 +139,7 @@ public class SteelArmor : Item
         type = ItemType.방어구;
         armor = 15;
         health = 15;
-        price = 300;
+        price = 500;
     }
 }
 
@@ -151,6 +151,6 @@ public class TwoHandSword : Item
         type = ItemType.양손무기;
         power = 15;
         armor = 10;
-        price = 300;
+        price = 500;
     }
 }
