@@ -5,6 +5,7 @@
         static Role myRole = null;
         //static Item myItem = null;
         static Inventory myInven = new Inventory();
+        static Store nStore = new Store();
 
         static void Main(string[] args)
         {
@@ -182,7 +183,8 @@
                 }
                 else if (act == "3")
                 {
-
+                    Console.Clear();
+                    nStore.StoreShow();
                 }
                 else if (act == "4")
                 {
