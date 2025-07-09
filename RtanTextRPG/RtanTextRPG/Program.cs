@@ -193,7 +193,7 @@
                         Console.WriteLine("--------------------");
                         Console.Write("원하시는 행동을 입력해주세요: ");
 
-                        string StoreAct = Console.ReadLine();
+                        string Act = Console.ReadLine();
                     }
                 }
                 else if (act == "4")

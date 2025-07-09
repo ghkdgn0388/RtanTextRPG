@@ -23,7 +23,7 @@ public class Store
         for (int i = 0; i < items.Count; i++)
         {
             Item item = items[i];
-            Console.WriteLine($"{i + 1}. {item.name} ({item.type})");
+            Console.WriteLine($"{i + 1}. {item.name} ({item.type}) {item.price}G");
         }
     }
 }
