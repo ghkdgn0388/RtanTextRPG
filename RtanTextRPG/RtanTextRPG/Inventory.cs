@@ -76,7 +76,7 @@ public class Inventory
         {
             switch (selectedItem.type)
             {
-                case "한손 무기":
+                case ItemType.한손무기:
                     // 이미 다른 무기를 끼고 있다면 알려줄 수 있습니다.
                     if (equippedWeapon != null)
                     {
@@ -86,7 +86,7 @@ public class Inventory
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
-                case "양손 무기":
+                case ItemType.양손무기:
                     if (equippedWeapon != null || equippedSub != null)
                     {
                         Console.WriteLine("양손 무기를 장착하기 위해 다른 무기들을 해제합니다.");
@@ -96,7 +96,7 @@ public class Inventory
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
-                case "방어구": // 아이템 타입은 일관성 있게 관리하는 것이 좋습니다.
+                case ItemType.방어구: // 아이템 타입은 일관성 있게 관리하는 것이 좋습니다.
                     if (equippedArmor != null)
                     {
                         Console.WriteLine($"{equippedArmor.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
@@ -105,7 +105,7 @@ public class Inventory
                     Console.WriteLine($"{selectedItem.name}을(를) 장착했습니다.");
                     break;
 
-                case "보조 장비":
+                case ItemType.보조장비:
                     if (equippedSub != null)
                     {
                         Console.WriteLine($"{equippedSub.name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
