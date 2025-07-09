@@ -5,7 +5,7 @@
         static Role myRole = null;
         //static Item myItem = null;
         static Inventory myInven = new Inventory();
-        static Store nStore = new Store();
+        static Store nStore;
 
         static void Main(string[] args)
         {
@@ -89,16 +89,19 @@
                 {
                     myRole = new Knight();
                     myInven.AddRange(((Knight)myRole).GetStarterItem());
+                    nStore = new Store(myRole);
                 }
                 else if (role == "2")
                 {
                     myRole = new Mercenary();
                     myInven.AddRange(((Mercenary)myRole).GetStarterItem());
+                    nStore = new Store(myRole);
                 }
                 else if (role == "3")
                 {
                     myRole = new Thief();
                     myInven.AddRange(((Thief)myRole).GetStarterItem());
+                    nStore = new Store(myRole);
                 }
                 else
                 {
@@ -188,7 +191,8 @@
                         Console.Clear();
                         nStore.StoreShow();
                         Console.WriteLine("\n--------------------");
-                        Console.WriteLine("1. 장비 관리");
+                        Console.WriteLine("1. 장비 구매");
+                        Console.WriteLine("2. 장비 판매");
                         Console.WriteLine("0. 나가기");
                         Console.WriteLine("--------------------");
                         Console.Write("원하시는 행동을 입력해주세요: ");

@@ -21,7 +21,7 @@ public class Role
         Console.WriteLine($"공격력: {power}");
         Console.WriteLine($"방어력: {armor}");
         Console.WriteLine($"체력: {health}");
-        Console.WriteLine($"소지금: {gold}");
+        Console.WriteLine($"소지금: {gold}G");
     }
 }
 
