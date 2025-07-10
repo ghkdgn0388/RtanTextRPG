@@ -15,12 +15,6 @@ public class Inventory
     }
 
 
-
-
-    //public Item equipment[(int)equipped.weapon] = null;
-    //public Item equipment[(int)equipped.armor] = null;
-    //public Item equipment[(int)equipped.sub] = null;
-
     public void Add(Item item)
     {
         items.Add(item);

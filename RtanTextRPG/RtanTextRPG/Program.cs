@@ -5,10 +5,9 @@ namespace RtanTextRPG
     internal class Program
     {
         static Role myRole = null;
-        //static Item myItem = null;
         static Inventory myInven = new Inventory();
         static Store nStore;
-        //static Inn myInn;
+        static Dungeon myDungeon;
 
         static void Main(string[] args)
         {
@@ -152,6 +151,7 @@ namespace RtanTextRPG
                 {
                     Console.Clear();
                     myRole.PlayerInfo();
+                    Console.WriteLine($"남은체력 : {myRole.curHealth}Hp");
                     Console.WriteLine("돌아가려면 아무버튼이나 입력해주세요");
                     Console.ReadLine();
                     continue;
@@ -230,15 +230,17 @@ namespace RtanTextRPG
                     {
                         Console.Clear();
                         Console.WriteLine("여관에서 휴식하시겠습니까?");
+                        Console.WriteLine($"남은체력 : {myRole.curHealth}Hp");
                         Console.WriteLine($"휴식 비용 : 300G | 보유 골드 : {myRole.gold}");
                         Console.WriteLine("1. 휴식한다 \n2. 돌아간다");
                         string check = Console.ReadLine();
 
                         if (check == "1")
                         {
-                            if(myRole.gold <= 300)
+                            if(myRole.gold < 300)
                             {
                                 Console.WriteLine($"{300 - myRole.gold}가 부족합니다.");
+                                Thread.Sleep(1000);
                             }
                             else
                             {
@@ -262,6 +264,11 @@ namespace RtanTextRPG
                         {
                             break;
                         }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                            Thread.Sleep(1000);
+                        }
 
                     }
                 }
@@ -269,7 +276,84 @@ namespace RtanTextRPG
                 {
                     while (true)
                     {
+                        Console.Clear();
+                        Console.WriteLine("입장 하고싶은 던전을 선택해 주세요");
+                        Console.WriteLine("1. 고블린 부락 \n2. 스켈레톤 요새 \n3. 슬라임 동굴 \n4. 돌아가기");
+                        string check = Console.ReadLine();
 
+                        if(check == "1")
+                        {
+                            myDungeon = new Goblin();
+                            Console.WriteLine($"{myDungeon.name}에 입장 하시겠습니까?");
+                            Console.WriteLine("1. 입장\n2. 돌아가기");
+                            string input = Console.ReadLine();
+                            if(input == "1")
+                            {
+                                myDungeon.Enter(myRole);
+                                break;
+                            }
+                            else if(input == "2")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("잘못된 입력입니다.");
+                                Thread.Sleep(1000);
+                            }
+                        }
+                        else if (check == "2")
+                        {
+                            myDungeon = new Skeleton();
+                            Console.WriteLine($"{myDungeon.name}에 입장 하시겠습니까?");
+                            Console.WriteLine("1. 입장\n2. 돌아가기");
+                            string input = Console.ReadLine();
+                            if (input == "1")
+                            {
+                                myDungeon.Enter(myRole);
+                                break;
+                            }
+                            else if (input == "2")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("잘못된 입력입니다.");
+                                Thread.Sleep(1000);
+                            }
+                        }
+                        else if (check == "3")
+                        {
+                            myDungeon = new Slime();
+                            Console.WriteLine($"{myDungeon.name}에 입장 하시겠습니까?");
+                            Console.WriteLine("1. 입장\n2. 돌아가기");
+                            string input = Console.ReadLine();
+                            if (input == "1")
+                            {
+                                myDungeon.Enter(myRole);
+                                break;
+                            }
+                            else if (input == "2")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("잘못된 입력입니다.");
+                                Thread.Sleep(1000);
+                            }
+                        }
+                        else if(check == "4")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("잘못된 입력입니다.");
+                            Thread.Sleep(1000); // 1초 대기
+                            return; // 메서드 종료
+                        }
                     }
                 }
                 else if (act == "6")
