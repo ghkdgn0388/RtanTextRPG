@@ -230,25 +230,33 @@ namespace RtanTextRPG
                     {
                         Console.Clear();
                         Console.WriteLine("여관에서 휴식하시겠습니까?");
+                        Console.WriteLine($"휴식 비용 : 300G | 보유 골드 : {myRole.gold}");
                         Console.WriteLine("1. 휴식한다 \n2. 돌아간다");
                         string check = Console.ReadLine();
 
                         if (check == "1")
                         {
-                            if (myRole.curHealth == myRole.maxHealth)
+                            if(myRole.gold <= 300)
                             {
-                                Console.WriteLine("이미 체력이 최대입니다.");
+                                Console.WriteLine($"{300 - myRole.gold}가 부족합니다.");
                             }
                             else
                             {
-                                int beforeHeal = myRole.curHealth;
-                                myRole.curHealth = Math.Min(myRole.curHealth + 100, myRole.maxHealth);
-                                int healedAmount = myRole.curHealth - beforeHeal;
+                                if (myRole.curHealth == myRole.maxHealth)
+                                {
+                                    Console.WriteLine("이미 체력이 최대입니다.");
+                                }
+                                else
+                                {
+                                    int beforeHeal = myRole.curHealth;
+                                    myRole.curHealth = Math.Min(myRole.curHealth + 100, myRole.maxHealth);
+                                    int healedAmount = myRole.curHealth - beforeHeal;
 
-                                Console.WriteLine($"체력이 {healedAmount}만큼 회복되었습니다. 현재 체력: {myRole.curHealth}/{myRole.maxHealth}");
+                                    Console.WriteLine($"체력이 {healedAmount}만큼 회복되었습니다. 현재 체력: {myRole.curHealth}/{myRole.maxHealth}");
+                                }
+
+                                Console.ReadLine();
                             }
-
-                            Console.ReadLine();
                         }
                         else if (check == "2")
                         {
@@ -259,7 +267,10 @@ namespace RtanTextRPG
                 }
                 else if (act == "5")
                 {
+                    while (true)
+                    {
 
+                    }
                 }
                 else if (act == "6")
                 {
