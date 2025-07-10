@@ -1,4 +1,6 @@
-﻿namespace RtanTextRPG
+﻿using System;
+
+namespace RtanTextRPG
 {
     internal class Program
     {
@@ -6,6 +8,7 @@
         //static Item myItem = null;
         static Inventory myInven = new Inventory();
         static Store nStore;
+        //static Inn myInn;
 
         static void Main(string[] args)
         {
@@ -89,7 +92,7 @@
                 {
                     myRole = new Knight();
                     myInven.AddRange(((Knight)myRole).GetStarterItem());
-                    myRole.myInven = myInven;
+                    myRole.myInven = myInven;             
                     nStore = new Store(myRole);
                 }
                 else if (role == "2")
@@ -115,6 +118,7 @@
                 myRole.name = name;
 
                 myRole.PlayerInfo();
+                myRole.curHealth = myRole.maxHealth;
                 Console.WriteLine("1. 시작하기\n0. 다시선택");
                 string check = Console.ReadLine();
                 if (check == "1")
@@ -141,7 +145,7 @@
             {
                 Console.Clear();
                 Console.WriteLine($"스파르타에 오신 {myRole.name}님 환영합니다. \n이곳에서 던전으로 입장하기전 정비를 할 수 있습니다.");
-                Console.WriteLine("1. 상태 보기\n2. 인벤토리\n3. 상점\n4. 던전 입장\n5. 저장");
+                Console.WriteLine("1. 상태 보기\n2. 인벤토리\n3. 상점\n4. 여관\n5. 던전 입장\n6. 저장");
                 string act = Console.ReadLine();
 
                 if (act == "1")
@@ -222,9 +226,42 @@
                 }
                 else if (act == "4")
                 {
+                    while (true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("여관에서 휴식하시겠습니까?");
+                        Console.WriteLine("1. 휴식한다 \n2. 돌아간다");
+                        string check = Console.ReadLine();
 
+                        if (check == "1")
+                        {
+                            if (myRole.curHealth == myRole.maxHealth)
+                            {
+                                Console.WriteLine("이미 체력이 최대입니다.");
+                            }
+                            else
+                            {
+                                int beforeHeal = myRole.curHealth;
+                                myRole.curHealth = Math.Min(myRole.curHealth + 100, myRole.maxHealth);
+                                int healedAmount = myRole.curHealth - beforeHeal;
+
+                                Console.WriteLine($"체력이 {healedAmount}만큼 회복되었습니다. 현재 체력: {myRole.curHealth}/{myRole.maxHealth}");
+                            }
+
+                            Console.ReadLine();
+                        }
+                        else if (check == "2")
+                        {
+                            break;
+                        }
+
+                    }
                 }
                 else if (act == "5")
+                {
+
+                }
+                else if (act == "6")
                 {
 
                 }

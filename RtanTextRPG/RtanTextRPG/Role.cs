@@ -17,6 +17,10 @@ public class Role
 
     public int curHealth;
 
+    public int curPower;
+    public int curArmor;
+    public int maxHealth;
+
     public void PlayerInfo()
     {
         //myInven.equipment[0] = myInven.equippedWeapon;
@@ -29,8 +33,11 @@ public class Role
         Console.WriteLine($"레벨: Lv.{level}");
         Console.WriteLine($"직업: {role}");
         Console.WriteLine($"공격력: {power}{(plusPower > 0 ? $" + {plusPower}" : "")}");
+        Console.WriteLine($"현재 공격력 : {curPower}");
         Console.WriteLine($"방어력: {armor}{(plusArmor > 0 ? $" + {plusArmor}" : "")}");
+        Console.WriteLine($"현재 공격력 : {curArmor}");
         Console.WriteLine($"체력: {health}{(plusHealth > 0 ? $" + {plusHealth}" : "")}");
+        Console.WriteLine($"현재 체력 : {curHealth}");
         Console.WriteLine($"소지금: {gold}G");
     }
 
@@ -48,6 +55,10 @@ public class Role
                 plusHealth += myInven.equipment[i].health;
             }
         }
+
+        curPower = power + plusPower;
+        curArmor = armor + plusArmor;
+        maxHealth = health + plusHealth;
     }
 }
 
