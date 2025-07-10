@@ -41,7 +41,12 @@ public class Inventory
                 equippedMark = "[E] ";
             }
 
-            Console.WriteLine($"{i + 1}. {equippedMark}{item.name} ({item.type})");
+            string statInfo = "";
+            if (item.power > 0) statInfo += $" | 공격력 +{item.power}";
+            if (item.armor > 0) statInfo += $" | 방어력 +{item.armor}";
+            if (item.health > 0) statInfo += $" | 체력 +{item.health}";
+
+            Console.WriteLine($"{i + 1}. {equippedMark}{item.name}{statInfo} ({item.type})");
         }
     }
 
@@ -121,7 +126,7 @@ public class Inventory
                         Console.WriteLine($"{equipment[(int)equipped.sub].name}을(를) 해제하고 {selectedItem.name}을(를) 장착합니다.");
                     }
 
-                    if (equipment[(int)equipped.weapon].type == ItemType.양손무기)
+                    if (equipment[(int)equipped.weapon] != null && equipment[(int)equipped.weapon].type == ItemType.양손무기)
                     {
                         equipment[(int)equipped.weapon] = null;
                     }

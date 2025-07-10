@@ -1,9 +1,11 @@
 ﻿using System;
+using static Inventory;
 
 public class Store
 {
     public List<Item> items = new List<Item>();
     public Role myRole;
+    public Inventory myInven;
 
     public Store(Role role)
     {
@@ -31,7 +33,13 @@ public class Store
         for (int i = 0; i < items.Count; i++)
         {
             Item item = items[i];
-            Console.WriteLine($"{i + 1}. {item.name} ({item.type}) | {item.price}G");
+
+            string statInfo = "";
+            if (item.power > 0) statInfo += $" | 공격력 +{item.power}";
+            if (item.armor > 0) statInfo += $" | 방어력 +{item.armor}";
+            if (item.health > 0) statInfo += $" | 체력 +{item.health}";
+
+            Console.WriteLine($"{i + 1}. {item.name} ({item.type}){statInfo} | {item.price}G");
         }
     }
 
@@ -115,6 +123,15 @@ public class Store
             {
                 int sellPrice = (int)(selectedItem.price * 0.75);
                 myRole.gold += sellPrice;
+
+                for (int i = 0; i < inven.equipment.Length; i++)
+                {
+                    if (inven.equipment[i] == selectedItem)
+                    {
+                        inven.equipment[i] = null;
+                    }
+                }
+
                 inven.items.Remove(selectedItem);
                 Console.WriteLine($"{selectedItem.name}을 판매하고 {sellPrice}G 를 획득하셨습니다.");
                 Thread.Sleep(1000);

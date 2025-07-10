@@ -8,6 +8,7 @@ public class Item
     public int armor;
     public int health;
     public int price;
+    public string info;
 }
 
 public enum ItemType
@@ -26,6 +27,7 @@ public class KnightMace : Item
         type = ItemType.한손무기;
         power = 5;
         price = 100;
+        info = "공격력 + 5";
     }
 }
 
@@ -38,6 +40,7 @@ public class KnightArmor : Item
         armor = 10;
         health = 30;
         price = 100;
+        info = "방어력 + 10 | 체력 + 30";
     }
 }
 
@@ -49,6 +52,7 @@ public class KnightShield : Item
         type = ItemType.보조장비;
         armor = 10;
         price = 100;
+        info = "방어력 + 10";
     }
 }
 
@@ -61,6 +65,7 @@ public class MercenaryTwohander : Item
         power = 10;
         armor = 5;
         price = 200;
+        info = "공격력 + 10 | 방어력 + 5";
     }
 }
 
@@ -73,6 +78,7 @@ public class MercenaryArmor : Item
         armor = 10;
         health = 10;
         price = 100;
+        info = "방어력 + 10 | 체력 + 10";
     }
 }
 
@@ -84,6 +90,7 @@ public class ThiefSword : Item
         type = ItemType.한손무기;
         power = 15;
         price = 100;
+        info = "공격력 + 15";
     }
 }
 
